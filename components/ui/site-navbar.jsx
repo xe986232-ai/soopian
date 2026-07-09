@@ -16,7 +16,7 @@ export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
           className
         )}
       >
-      <div className="border-b border-black/10 bg-white/80 backdrop-blur-xl">
+      <div className="border-b border-black/10 bg-white/50 backdrop-blur-2xl">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
         <div className="flex items-center gap-3">
           <button
@@ -31,7 +31,7 @@ export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
             <span className="h-8 w-8 rounded-full bg-gradient-to-br from-remix-from via-creator-to to-leadis-to flex items-center justify-center text-white font-display font-black text-sm">
               S
             </span>
-            <span className="font-display font-bold text-ink text-sm hidden sm:block">
+            <span className="font-display font-bold text-ink text-xs hidden sm:block">
               SOPAN TEAM
             </span>
           </a>
@@ -42,7 +42,7 @@ export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
             <a
               key={`nav-${idx}`}
               href={item.link}
-              className="text-sm text-ink-muted hover:text-ink transition-colors"
+              className="text-xs text-ink-muted hover:text-ink transition-colors"
             >
               {item.name}
             </a>
