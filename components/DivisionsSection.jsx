@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Lens } from "./ui/lens";
-import { AnimatedTooltip } from "./ui/animated-tooltip";
 import { Button } from "./ui/button";
 import {
   Card,
@@ -72,7 +71,7 @@ const fadeUp = {
 function DivisionVisual({ division }) {
   return (
     <div
-      className="relative h-48 w-full sm:w-[22rem] overflow-hidden rounded-lg"
+      className="relative h-60 w-full overflow-hidden rounded-lg"
       style={{
         background: `linear-gradient(135deg, ${division.accentSolidFrom}33, ${division.accentSolidTo}22), #0D0D14`,
       }}
@@ -131,54 +130,19 @@ export default function DivisionsSection() {
               variants={fadeUp}
               transition={{ delay: i * 0.1 }}
             >
-              <Card className="w-auto sm:w-[22rem] overflow-hidden group">
-                <CardHeader className="p-4 pb-0">
-                  <Lens isStatic position={{ x: 150, y: 90 }} zoomFactor={1.8} lensSize={150}>
+              <Card className="max-w-md w-[22rem] shadow-none overflow-hidden">
+                <CardHeader>
+                  <Lens isStatic position={{ x: 150, y: 90 }}>
                     <DivisionVisual division={division} />
                   </Lens>
                 </CardHeader>
-
-                <CardContent className="pt-5">
-                  <span
-                    className={`text-xs tracking-[0.3em] uppercase font-medium bg-gradient-to-r ${division.accent} bg-clip-text text-transparent`}
-                  >
-                    {division.eyebrow}
-                  </span>
-                  <CardTitle className="text-4xl mt-3 text-ink">
-                    {division.name}
-                  </CardTitle>
-                  <p
-                    className={`mt-1 text-sm font-medium bg-gradient-to-r ${division.accent} bg-clip-text text-transparent`}
-                  >
-                    {division.tagline}
-                  </p>
-                  <CardDescription className="mt-4 max-w-sm">
-                    {division.description}
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2 mt-5 w-full">
-                    {division.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-3 py-1.5 rounded-full border border-black/10 text-ink-muted bg-black/5"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <CardContent>
+                  <CardTitle className="text-2xl">{division.name}</CardTitle>
+                  <CardDescription>{division.description}</CardDescription>
                 </CardContent>
-
-                <CardFooter className="justify-between border-t border-black/10 mt-2">
-                  <div className="flex items-center">
-                    <div className="flex items-center mr-4">
-                      <AnimatedTooltip items={division.members} />
-                    </div>
-                    <span className="text-xs text-ink-dim">
-                      {division.members.length} member aktif
-                    </span>
-                  </div>
-                  <Button size="sm" variant="secondary">
-                    Gabung
-                  </Button>
+                <CardFooter className="space-x-4">
+                  <Button>Gabung Sekarang</Button>
+                  <Button variant="secondary">Lihat Karya</Button>
                 </CardFooter>
               </Card>
             </motion.div>
