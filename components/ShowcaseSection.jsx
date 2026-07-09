@@ -32,7 +32,7 @@ const SHOWCASE = [
 
 export default function ShowcaseSection() {
   return (
-    <section className="relative py-20 sm:py-24 overflow-hidden">
+    <section id="karya" className="relative py-20 sm:py-24 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -4,8 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Users, Sparkles } from "lucide-react";
 import { useState } from "react";
 
-export const SiteNavbar = ({ navItems, className }) => {
+export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
   const [open, setOpen] = useState(false);
+  const groups = mobileGroups || [{ label: "Menu", items: navItems }];
 
   return (
     <>
@@ -79,18 +80,24 @@ export const SiteNavbar = ({ navItems, className }) => {
             className="sm:hidden fixed inset-x-0 top-[57px] bottom-0 z-[4999] bg-white overflow-y-auto"
           >
             <div className="flex flex-col px-6 pt-6 pb-10">
-              <span className="text-xs tracking-[0.3em] uppercase text-ink-dim mb-4">
-                Menu
-              </span>
-              {navItems.map((item, idx) => (
-                <a
-                  key={`mnav-${idx}`}
-                  href={item.link}
-                  onClick={() => setOpen(false)}
-                  className="font-display font-bold text-4xl text-ink py-2 transition-colors hover:text-ink-muted"
-                >
-                  {item.name}
-                </a>
+              {groups.map((group, gIdx) => (
+                <div key={`group-${gIdx}`} className={gIdx > 0 ? "mt-8" : ""}>
+                  <span className="text-xs tracking-[0.3em] uppercase text-ink-dim mb-3 block">
+                    {group.label}
+                  </span>
+                  <div className="flex flex-col">
+                    {group.items.map((item, idx) => (
+                      <a
+                        key={`mnav-${gIdx}-${idx}`}
+                        href={item.link}
+                        onClick={() => setOpen(false)}
+                        className="font-display font-bold text-4xl text-ink py-2 transition-colors hover:text-ink-muted"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               ))}
 
               <div className="flex items-center gap-3 mt-8">
