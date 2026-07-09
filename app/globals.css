@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #0B0A10;
+}
+
+::selection {
+  background-color: #B026FF;
+  color: #FFFFFF;
+}
+
+/* visible keyboard focus, kept even where hover styles are custom */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0B0A10;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
