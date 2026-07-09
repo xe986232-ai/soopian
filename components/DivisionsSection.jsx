@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
+import { Lens } from "./ui/lens";
 
 const DIVISIONS = [
   {
@@ -12,6 +12,8 @@ const DIVISIONS = [
       "Ngolah ulang track jadi versi yang lebih segar — dari mashup, bootleg, sampai remix full produksi.",
     tags: ["Mashup", "Bootleg Remix", "Sound Design"],
     accent: "from-remix-from to-remix-to",
+    accentSolidFrom: "#B026FF",
+    accentSolidTo: "#FF2E92",
   },
   {
     eyebrow: "Divisi 02",
@@ -21,6 +23,8 @@ const DIVISIONS = [
       "Nyusun potongan gambar jadi konten yang enak ditonton — editing rapi, transisi presisi, color grading konsisten.",
     tags: ["Video Editing", "Color Grading", "Motion Graphic"],
     accent: "from-creator-from to-creator-to",
+    accentSolidFrom: "#00E5FF",
+    accentSolidTo: "#3D5AFE",
   },
   {
     eyebrow: "Divisi 03",
@@ -30,6 +34,8 @@ const DIVISIONS = [
       "Wadah khusus kreator perempuan buat tampil, bikin konten, dan berkembang bareng dalam satu keluarga SOPAN TEAM.",
     tags: ["Content Creation", "Live & Showcase", "Personal Branding"],
     accent: "from-leadis-from to-leadis-to",
+    accentSolidFrom: "#FFD166",
+    accentSolidTo: "#FF6FB5",
   },
 ];
 
@@ -37,6 +43,39 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
+
+function DivisionVisual({ division }) {
+  return (
+    <div
+      className="relative h-48 w-full sm:w-[22rem] overflow-hidden rounded-lg"
+      style={{
+        background: `linear-gradient(135deg, ${division.accentSolidFrom}33, ${division.accentSolidTo}22), #0D0D14`,
+      }}
+    >
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.25) 1px, transparent 0)",
+          backgroundSize: "18px 18px",
+        }}
+      />
+      <div
+        className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full blur-3xl opacity-50"
+        style={{ background: division.accentSolidTo }}
+      />
+      <div
+        className="absolute -top-10 -left-10 h-32 w-32 rounded-full blur-3xl opacity-40"
+        style={{ background: division.accentSolidFrom }}
+      />
+      <span
+        className={`absolute bottom-4 right-5 font-display text-6xl bg-gradient-to-r ${division.accent} bg-clip-text text-transparent select-none`}
+      >
+        {division.eyebrow.replace("Divisi ", "0")}
+      </span>
+    </div>
+  );
+}
 
 export default function DivisionsSection() {
   return (
@@ -57,7 +96,7 @@ export default function DivisionsSection() {
           </h2>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center gap-6">
           {DIVISIONS.map((division, i) => (
             <motion.div
               key={division.name}
@@ -66,44 +105,40 @@ export default function DivisionsSection() {
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
               transition={{ delay: i * 0.1 }}
+              className="bg-base-elevated border border-white/10 w-auto sm:w-[22rem] rounded-xl p-4 group"
             >
-              <CardContainer className="inter-var">
-                <CardBody className="bg-base-elevated relative group/card border border-white/10 w-auto sm:w-[22rem] h-auto rounded-xl p-6">
-                  <CardItem
-                    translateZ="50"
-                    className={`text-xs tracking-[0.3em] uppercase font-medium bg-gradient-to-r ${division.accent} bg-clip-text text-transparent`}
-                  >
-                    {division.eyebrow}
-                  </CardItem>
-                  <CardItem
-                    translateZ="60"
-                    as="h3"
-                    className="font-display text-4xl mt-3 text-ink"
-                  >
-                    {division.name}
-                  </CardItem>
-                  <CardItem
-                    translateZ="60"
-                    as="p"
-                    className={`mt-1 text-sm font-medium bg-gradient-to-r ${division.accent} bg-clip-text text-transparent`}
-                  >
-                    {division.tagline}
-                  </CardItem>
-                  <CardItem translateZ="80" as="p" className="mt-4 text-ink-muted text-sm max-w-sm">
-                    {division.description}
-                  </CardItem>
-                  <CardItem translateZ="40" className="flex flex-wrap gap-2 mt-5 w-full">
-                    {division.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-ink-muted bg-white/5"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </CardItem>
-                </CardBody>
-              </CardContainer>
+              <Lens zoomFactor={1.8} lensSize={150}>
+                <DivisionVisual division={division} />
+              </Lens>
+
+              <div className="px-2 pt-5 pb-1">
+                <span
+                  className={`text-xs tracking-[0.3em] uppercase font-medium bg-gradient-to-r ${division.accent} bg-clip-text text-transparent`}
+                >
+                  {division.eyebrow}
+                </span>
+                <h3 className="font-display text-4xl mt-3 text-ink">
+                  {division.name}
+                </h3>
+                <p
+                  className={`mt-1 text-sm font-medium bg-gradient-to-r ${division.accent} bg-clip-text text-transparent`}
+                >
+                  {division.tagline}
+                </p>
+                <p className="mt-4 text-ink-muted text-sm max-w-sm">
+                  {division.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5 w-full">
+                  {division.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-ink-muted bg-white/5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
