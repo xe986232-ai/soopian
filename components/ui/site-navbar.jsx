@@ -2,15 +2,33 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Users, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
   const [open, setOpen] = useState(false);
+  const [navHeight, setNavHeight] = useState(57);
+  const navRef = useRef(null);
   const groups = mobileGroups || [{ label: "Menu", items: navItems }];
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (navRef.current) {
+        setNavHeight(navRef.current.getBoundingClientRect().bottom);
+      }
+    };
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    window.addEventListener("scroll", updateHeight);
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      window.removeEventListener("scroll", updateHeight);
+    };
+  }, [open]);
 
   return (
     <>
       <div
+        ref={navRef}
         className={cn(
           "sticky top-0 z-[5000] w-full",
           className
@@ -77,7 +95,8 @@ export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="sm:hidden fixed inset-x-0 top-[57px] bottom-0 z-[4999] bg-white overflow-y-auto"
+            style={{ top: `${navHeight}px` }}
+            className="sm:hidden fixed inset-x-0 bottom-0 z-[4999] bg-white overflow-y-auto"
           >
             <div className="flex flex-col px-6 pt-6 pb-10">
               {groups.map((group, gIdx) => (
@@ -91,7 +110,7 @@ export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
                         key={`mnav-${gIdx}-${idx}`}
                         href={item.link}
                         onClick={() => setOpen(false)}
-                        className="font-body font-semibold tracking-tight text-3xl text-ink py-1.5 transition-colors hover:text-ink-muted"
+                        className="font-body font-semibold tracking-tight text-xl text-ink py-1.5 transition-colors hover:text-ink-muted"
                       >
                         {item.name}
                       </a>
