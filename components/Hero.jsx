@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AuroraBackground } from "./ui/aurora-background";
+import { SoftGlowBackground } from "./ui/soft-glow-background";
 
 const DIVISION_BADGES = [
   { label: "Remix", color: "#B026FF" },
@@ -11,7 +11,7 @@ const DIVISION_BADGES = [
 
 export default function Hero() {
   return (
-    <AuroraBackground className="min-h-screen">
+    <SoftGlowBackground className="min-h-screen flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -67,6 +67,6 @@ export default function Hero() {
           ))}
         </div>
       </motion.div>
-    </AuroraBackground>
+    </SoftGlowBackground>
   );
 }
