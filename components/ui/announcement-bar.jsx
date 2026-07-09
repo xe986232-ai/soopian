@@ -14,7 +14,7 @@ export function AnnouncementBar({ children, href }) {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="relative overflow-hidden bg-gradient-to-r from-remix-from via-creator-to to-leadis-to"
+          className="relative overflow-hidden bg-sky-300"
         >
           <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 px-10 py-2.5 text-center">
             <a
