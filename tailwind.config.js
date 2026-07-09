@@ -38,18 +38,18 @@ module.exports = {
         "grain": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E\")",
       },
       keyframes: {
-        "aurora-drift": {
-          "0%, 100%": { transform: "translate(0%, 0%) rotate(0deg) scale(1)" },
-          "33%": { transform: "translate(6%, -4%) rotate(4deg) scale(1.08)" },
-          "66%": { transform: "translate(-4%, 5%) rotate(-3deg) scale(0.96)" },
+        "aurora": {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
         },
-        "eq-bar": {
-          "0%, 100%": { transform: "scaleY(0.3)" },
-          "50%": { transform: "scaleY(1)" },
-        },
-        "scanline": {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(100%)" },
+        "scroll": {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
         },
         "float-slow": {
           "0%, 100%": { transform: "translateY(0px)" },
@@ -57,9 +57,8 @@ module.exports = {
         },
       },
       animation: {
-        "aurora-drift": "aurora-drift 18s ease-in-out infinite",
-        "eq-bar": "eq-bar 1.1s ease-in-out infinite",
-        "scanline": "scanline 2.4s linear infinite",
+        "aurora": "aurora 60s linear infinite",
+        "scroll": "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "float-slow": "float-slow 6s ease-in-out infinite",
       },
     },

@@ -1,106 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AuroraBackground from "./AuroraBackground";
-
-const container = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
-  },
-};
-
-const wordVariant = {
-  hidden: { y: "110%", opacity: 0 },
-  show: {
-    y: "0%",
-    opacity: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-function RevealWords({ text, className }) {
-  return (
-    <motion.span
-      variants={container}
-      initial="hidden"
-      animate="show"
-      className={className}
-      aria-label={text}
-    >
-      {text.split(" ").map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.25em]">
-          <motion.span variants={wordVariant} className="inline-block">
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </motion.span>
-  );
-}
+import { AuroraBackground } from "./ui/aurora-background";
 
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="relative min-h-screen flex flex-col justify-center px-6 sm:px-10 pt-32 pb-20"
-    >
-      <AuroraBackground />
-
-      <div className="relative z-10 max-w-5xl mx-auto w-full">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="font-body text-sm sm:text-base tracking-[0.3em] uppercase text-ink-muted mb-6"
-        >
+    <AuroraBackground className="min-h-screen">
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+        className="relative flex flex-col gap-4 items-center justify-center px-4 text-center"
+      >
+        <p className="text-sm sm:text-base tracking-[0.3em] uppercase text-ink-muted mb-2">
           Komunitas Kreator &middot; Est. Sekarang
-        </motion.p>
-
-        <h1 className="font-display font-900 leading-[0.95] text-[13vw] sm:text-[7rem] lg:text-[8rem] uppercase text-ink">
-          <RevealWords text="Sopan" className="block" />
-          <RevealWords text="Team" className="block" />
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="mt-8 max-w-xl text-lg text-ink-muted"
-        >
+        </p>
+        <div className="font-display font-black uppercase text-5xl md:text-8xl text-ink text-center leading-[0.95]">
+          Sopan Team
+        </div>
+        <div className="font-body font-light text-base md:text-2xl text-ink-muted py-4 max-w-xl">
           Tiga divisi, satu identitas. Kami meremix suara, mengedit gambar
-          jadi cerita, dan memberi panggung buat kreator perempuan — semuanya
-          di bawah satu nama.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.75 }}
-          className="mt-10 flex flex-wrap gap-4"
-        >
+          jadi cerita, dan memberi panggung buat kreator perempuan.
+        </div>
+        <div className="flex flex-wrap gap-4 justify-center mt-2">
           <a
             href="#divisi"
-            className="px-6 py-3 rounded-full bg-ink text-base font-medium text-sm hover:opacity-90 transition-opacity"
+            className="bg-ink rounded-full w-fit text-base px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Lihat Divisi
           </a>
           <a
             href="#tentang"
-            className="px-6 py-3 rounded-full border border-white/15 text-ink text-sm font-medium hover:bg-white/5 transition-colors"
+            className="border border-white/15 rounded-full w-fit text-ink px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
           >
             Tentang Kami
           </a>
-        </motion.div>
-      </div>
-
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink-dim text-xs tracking-[0.3em] uppercase z-10"
-      >
-        Scroll
+        </div>
       </motion.div>
-    </section>
+    </AuroraBackground>
   );
 }

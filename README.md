@@ -27,25 +27,44 @@ app/
   page.js         -> menyusun semua section jadi 1 halaman
   globals.css     -> style dasar + reduced-motion support
 components/
-  FloatingNavbar.jsx    -> navbar yang hide/show saat scroll
-  AuroraBackground.jsx  -> background animasi di hero
-  Hero.jsx              -> section pembuka + text reveal animation
-  AboutSection.jsx      -> manifesto singkat tim
-  DivisionsSection.jsx  -> grid 3 kartu divisi
-  DivisionCard.jsx      -> kartu divisi dengan tilt 3D + pola animasi unik
-  Footer.jsx            -> CTA gabung + link sosial
+  ui/                          -> komponen asli Aceternity (nama & props sesuai dokumentasi resmi)
+    aurora-background.jsx      -> Aurora Background
+    floating-navbar.jsx        -> Floating Navbar (export: FloatingNav)
+    3d-card.jsx                -> 3D Card Effect (CardContainer, CardBody, CardItem)
+    bento-grid.jsx             -> Bento Grid (BentoGrid, BentoGridItem)
+    infinite-moving-cards.jsx  -> Infinite Moving Cards (marquee)
+  Hero.jsx              -> pakai AuroraBackground
+  AboutSection.jsx       -> manifesto singkat tim
+  DivisionsSection.jsx   -> 3 kartu divisi pakai 3D Card Effect
+  ShowcaseSection.jsx    -> marquee showcase karya pakai Infinite Moving Cards
+  Footer.jsx             -> CTA gabung + link sosial
 lib/
-  utils.js        -> helper gabungin className Tailwind
+  utils.js        -> helper gabungin className Tailwind (dipakai semua komponen ui/)
 ```
+
+> Komponen di `components/ui/` adalah implementasi dari komponen Aceternity UI
+> (Aurora Background, Floating Navbar, 3D Card Effect, Bento Grid, Infinite
+> Moving Cards) — dibangun mengikuti nama, props, dan perilaku resmi mereka.
+> Kalau kamu mau versi 1:1 langsung dari sumbernya, jalankan command CLI resmi
+> di project ini (butuh koneksi internet ke ui.aceternity.com):
+> ```bash
+> npx shadcn@latest add @aceternity/aurora-background
+> npx shadcn@latest add @aceternity/floating-navbar
+> npx shadcn@latest add @aceternity/3d-card-effect
+> npx shadcn@latest add @aceternity/bento-grid
+> npx shadcn@latest add @aceternity/infinite-moving-cards
+> ```
+> Ini akan menimpa file yang senama di `components/ui/` dengan source code asli dari Aceternity.
 
 ## Yang Bisa Kamu Ganti
 
 - **Teks & copy**: langsung edit di tiap file component (`Hero.jsx`,
-  `AboutSection.jsx`, `DivisionsSection.jsx`).
+  `AboutSection.jsx`, `DivisionsSection.jsx`, `ShowcaseSection.jsx`).
 - **Data divisi**: array `DIVISIONS` di `components/DivisionsSection.jsx`
-  — ganti `description`, `tags`, atau warna gradient (`gradientFrom`/`gradientTo`).
+  — ganti `description`, `tags`, atau warna aksen (`accent`).
+- **Data showcase/marquee**: array `SHOWCASE` di `components/ShowcaseSection.jsx`.
 - **Warna tema**: `tailwind.config.js` bagian `colors` (`remix`, `creator`, `leadis`, `base`, `ink`).
-- **Logo**: taruh file logo di folder `public/`, lalu pakai `<Image>` dari `next/image` di `FloatingNavbar.jsx`.
+- **Logo**: taruh file logo di folder `public/`, lalu pakai `<Image>` dari `next/image` di `components/ui/floating-navbar.jsx`.
 - **Link sosial & kontak**: `components/Footer.jsx`.
 
 ## Deploy
