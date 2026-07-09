@@ -1,6 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+<<<<<<< HEAD
+import Link from "next/link";
+=======
+>>>>>>> 4bae373ba614738f430cb8f815451e30ba5136aa
 import { Lens } from "./ui/lens";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
 import { Button } from "./ui/button";
@@ -17,6 +21,10 @@ const DIVISIONS = [
   {
     eyebrow: "Divisi 01",
     name: "Remix",
+<<<<<<< HEAD
+    href: "/divisi/remix",
+=======
+>>>>>>> 4bae373ba614738f430cb8f815451e30ba5136aa
     tagline: "Suara baru dari lagu lama",
     description:
       "Ngolah ulang track jadi versi yang lebih segar — dari mashup, bootleg, sampai remix full produksi.",
@@ -153,12 +161,37 @@ export default function DivisionsSection() {
                     </span>
                   </div>
                   <div className="flex gap-2">
+<<<<<<< HEAD
+                    {division.href ? (
+                      <Link href={division.href} className="flex-1">
+                        <Button size="sm" className="w-full">
+                          Gabung
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button size="sm" className="flex-1">
+                        Gabung
+                      </Button>
+                    )}
+                    {division.href ? (
+                      <Link href={division.href} className="flex-1">
+                        <Button size="sm" variant="secondary" className="w-full">
+                          Karya
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button size="sm" variant="secondary" className="flex-1">
+                        Karya
+                      </Button>
+                    )}
+=======
                     <Button size="sm" className="flex-1">
                       Gabung
                     </Button>
                     <Button size="sm" variant="secondary" className="flex-1">
                       Karya
                     </Button>
+>>>>>>> 4bae373ba614738f430cb8f815451e30ba5136aa
                   </div>
                 </CardFooter>
               </Card>
@@ -168,4 +201,8 @@ export default function DivisionsSection() {
       </div>
     </section>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4bae373ba614738f430cb8f815451e30ba5136aa

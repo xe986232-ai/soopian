@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import DivisionsSection from "@/components/DivisionsSection";
 import ShowcaseSection from "@/components/ShowcaseSection";
+import TestimonialSection from "@/components/TestimonialSection";
 import Footer from "@/components/Footer";
 
 const navItems = [
@@ -42,6 +43,7 @@ export default function Home() {
       <AboutSection />
       <DivisionsSection />
       <ShowcaseSection />
+      <TestimonialSection />
       <Footer />
     </main>
   );
