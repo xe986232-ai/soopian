@@ -8,12 +8,14 @@ export const SiteNavbar = ({ navItems, className }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div
-      className={cn(
-        "sticky top-0 z-[5000] w-full border-b border-black/10 bg-white/80 backdrop-blur-xl",
-        className
-      )}
-    >
+    <>
+      <div
+        className={cn(
+          "sticky top-0 z-[5000] w-full",
+          className
+        )}
+      >
+      <div className="border-b border-black/10 bg-white/80 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
         <div className="flex items-center gap-3">
           <button
@@ -64,6 +66,8 @@ export const SiteNavbar = ({ navItems, className }) => {
           </a>
         </div>
       </div>
+      </div>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -112,6 +116,6 @@ export const SiteNavbar = ({ navItems, className }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
