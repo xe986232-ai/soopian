@@ -105,7 +105,7 @@ export default function DivisionsSection() {
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
               transition={{ delay: i * 0.1 }}
-              className="bg-base-elevated border border-white/10 w-auto sm:w-[22rem] rounded-xl p-4 group"
+              className="bg-base-elevated border border-black/10 w-auto sm:w-[22rem] rounded-xl p-4 group"
             >
               <Lens zoomFactor={1.8} lensSize={150}>
                 <DivisionVisual division={division} />
@@ -132,7 +132,7 @@ export default function DivisionsSection() {
                   {division.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-ink-muted bg-white/5"
+                      className="text-xs px-3 py-1.5 rounded-full border border-black/10 text-ink-muted bg-black/5"
                     >
                       {tag}
                     </span>

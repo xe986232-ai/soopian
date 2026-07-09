@@ -8,14 +8,14 @@ module.exports = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#F5F3FF",
-          muted: "#9A96B0",
-          dim: "#6E6A85",
+          DEFAULT: "#0B0A10",
+          muted: "#5B5768",
+          dim: "#8B87A0",
         },
         base: {
-          DEFAULT: "#08080D",
-          elevated: "#101018",
-          line: "#1E1E2A",
+          DEFAULT: "#FFFFFF",
+          elevated: "#F6F5F9",
+          line: "#E7E5EF",
         },
         remix: {
           from: "#B026FF",

@@ -7,19 +7,19 @@
 }
 
 body {
-  background-color: #08080D;
-  color: #F5F3FF;
+  background-color: #FFFFFF;
+  color: #0B0A10;
 }
 
 ::selection {
   background-color: #B026FF;
-  color: #08080D;
+  color: #FFFFFF;
 }
 
 /* visible keyboard focus, kept even where hover styles are custom */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #F5F3FF;
+  outline: 2px solid #0B0A10;
   outline-offset: 3px;
   border-radius: 4px;
 }

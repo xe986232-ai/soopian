@@ -20,7 +20,7 @@ export default function Hero() {
       >
         <a
           href="#divisi"
-          className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs sm:text-sm text-ink-muted hover:bg-white/10 transition-colors mb-4"
+          className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs sm:text-sm text-ink-muted hover:bg-black/10 transition-colors mb-4"
         >
           <span>🎉</span>
           <span>Divisi Leadis resmi dibuka untuk kreator perempuan</span>
@@ -39,14 +39,14 @@ export default function Hero() {
         <div className="flex flex-wrap gap-4 justify-center mt-2">
           <a
             href="#divisi"
-            className="relative rounded-full w-fit px-7 py-3 text-sm font-semibold text-black bg-ink overflow-hidden group"
+            className="relative rounded-full w-fit px-7 py-3 text-sm font-semibold text-white bg-ink overflow-hidden group"
           >
             <span className="relative z-10">Lihat Divisi</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-remix-from via-creator-to to-leadis-to opacity-0 group-hover:opacity-20 transition-opacity" />
+            <span className="absolute inset-0 bg-gradient-to-r from-remix-from via-creator-to to-leadis-to opacity-0 group-hover:opacity-30 transition-opacity" />
           </a>
           <a
             href="#tentang"
-            className="border border-white/15 rounded-full w-fit text-ink px-7 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
+            className="border border-black/10 rounded-full w-fit text-ink px-7 py-3 text-sm font-medium hover:bg-black/5 transition-colors"
           >
             Tentang Kami
           </a>
@@ -56,7 +56,7 @@ export default function Hero() {
           {DIVISION_BADGES.map((d) => (
             <span
               key={d.label}
-              className="flex items-center gap-1.5 text-xs text-ink-muted border border-white/10 rounded-full px-3 py-1.5 bg-white/5"
+              className="flex items-center gap-1.5 text-xs text-ink-muted border border-black/10 rounded-full px-3 py-1.5 bg-black/5"
             >
               <span
                 className="h-1.5 w-1.5 rounded-full"

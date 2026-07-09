@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer
       id="gabung"
-      className="relative px-6 sm:px-10 py-20 border-t border-white/10"
+      className="relative px-6 sm:px-10 py-20 border-t border-black/10"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         <div>
@@ -13,7 +13,7 @@ export default function Footer() {
           </p>
           <a
             href="#top"
-            className="inline-block mt-6 px-6 py-3 rounded-full bg-ink text-base text-sm font-medium hover:opacity-90 transition-opacity"
+            className="inline-block mt-6 px-6 py-3 rounded-full bg-ink text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Hubungi Kami
           </a>
