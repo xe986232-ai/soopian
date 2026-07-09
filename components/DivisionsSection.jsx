@@ -72,7 +72,7 @@ const fadeUp = {
 function DivisionVisual({ division }) {
   return (
     <div
-      className="relative aspect-[3/4] w-full overflow-hidden rounded-lg"
+      className="relative aspect-[4/3] w-full overflow-hidden rounded-lg"
       style={{
         background: `linear-gradient(135deg, ${division.accentSolidFrom}33, ${division.accentSolidTo}22), #0D0D14`,
       }}
