@@ -72,7 +72,7 @@ const fadeUp = {
 function DivisionVisual({ division }) {
   return (
     <div
-      className="relative h-36 w-full overflow-hidden rounded-lg"
+      className="relative aspect-[3/4] w-full overflow-hidden rounded-lg"
       style={{
         background: `linear-gradient(135deg, ${division.accentSolidFrom}33, ${division.accentSolidTo}22), #0D0D14`,
       }}
@@ -131,7 +131,7 @@ export default function DivisionsSection() {
               variants={fadeUp}
               transition={{ delay: i * 0.1 }}
             >
-              <Card className="w-full shadow-none overflow-hidden">
+              <Card className="w-full max-w-xs mx-auto shadow-none overflow-hidden">
                 <CardHeader className="p-3 pb-0">
                   <Lens isStatic position={{ x: 100, y: 60 }}>
                     <DivisionVisual division={division} />
