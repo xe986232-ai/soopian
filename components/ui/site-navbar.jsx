@@ -87,7 +87,7 @@ export const SiteNavbar = ({ navItems, className }) => {
                   key={`mnav-${idx}`}
                   href={item.link}
                   onClick={() => setOpen(false)}
-                  className="font-display font-bold text-4xl text-ink py-3 border-b border-black/5 transition-colors hover:text-ink-muted"
+                  className="font-display font-bold text-4xl text-ink py-2 transition-colors hover:text-ink-muted"
                 >
                   {item.name}
                 </a>
