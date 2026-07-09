@@ -91,7 +91,7 @@ export const SiteNavbar = ({ navItems, mobileGroups, className }) => {
                         key={`mnav-${gIdx}-${idx}`}
                         href={item.link}
                         onClick={() => setOpen(false)}
-                        className="font-display font-bold text-4xl text-ink py-2 transition-colors hover:text-ink-muted"
+                        className="font-body font-semibold tracking-tight text-3xl text-ink py-1.5 transition-colors hover:text-ink-muted"
                       >
                         {item.name}
                       </a>
