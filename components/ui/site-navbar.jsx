@@ -68,23 +68,46 @@ export const SiteNavbar = ({ navItems, className }) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="sm:hidden overflow-hidden border-t border-black/10"
+            className="sm:hidden fixed inset-x-0 top-[57px] bottom-0 z-[4999] bg-white overflow-y-auto"
           >
-            <div className="flex flex-col px-4 py-3 gap-1">
+            <div className="flex flex-col px-6 pt-6 pb-10">
+              <span className="text-xs tracking-[0.3em] uppercase text-ink-dim mb-4">
+                Menu
+              </span>
               {navItems.map((item, idx) => (
                 <a
                   key={`mnav-${idx}`}
                   href={item.link}
                   onClick={() => setOpen(false)}
-                  className="text-sm text-ink-muted hover:text-ink py-2 transition-colors"
+                  className="font-display font-bold text-4xl text-ink py-3 border-b border-black/5 transition-colors hover:text-ink-muted"
                 >
                   {item.name}
                 </a>
               ))}
+
+              <div className="flex items-center gap-3 mt-8">
+                <span className="flex items-center gap-1.5 text-xs text-ink-muted border border-black/10 rounded-full px-3 py-1.5">
+                  <Users size={13} />
+                  180+
+                </span>
+                <span className="flex items-center gap-1.5 text-xs text-ink-muted border border-black/10 rounded-full px-3 py-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  Rekrutmen buka
+                </span>
+              </div>
+
+              <a
+                href="#gabung"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-1.5 text-sm font-medium text-white bg-ink px-4 py-3 rounded-full hover:opacity-90 transition-opacity mt-6"
+              >
+                <Sparkles size={14} />
+                Gabung
+              </a>
             </div>
           </motion.div>
         )}
