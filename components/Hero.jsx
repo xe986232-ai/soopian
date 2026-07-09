@@ -3,12 +3,6 @@
 import { motion } from "framer-motion";
 import { SoftGlowBackground } from "./ui/soft-glow-background";
 
-const DIVISION_BADGES = [
-  { label: "Remix", color: "#B026FF" },
-  { label: "Creator", color: "#00E5FF" },
-  { label: "Leadis", color: "#FFD166" },
-];
-
 export default function Hero() {
   return (
     <SoftGlowBackground className="min-h-screen flex items-center justify-center">
@@ -18,15 +12,6 @@ export default function Hero() {
         transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
         className="relative flex flex-col gap-4 items-center justify-center px-4 text-center"
       >
-        <a
-          href="#divisi"
-          className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs sm:text-sm text-ink-muted hover:bg-black/10 transition-colors mb-4"
-        >
-          <span>🎉</span>
-          <span>Divisi Leadis resmi dibuka untuk kreator perempuan</span>
-          <span className="transition-transform group-hover:translate-x-0.5">›</span>
-        </a>
-
         <div className="font-display font-black uppercase text-5xl md:text-8xl text-ink text-center leading-[0.95]">
           Sopan Team
         </div>
@@ -36,7 +21,7 @@ export default function Hero() {
           jadi cerita, dan memberi panggung buat kreator perempuan.
         </div>
 
-        <div className="flex flex-wrap gap-4 justify-center mt-2">
+        <div className="flex flex-wrap gap-4 justify-center">
           <a
             href="#divisi"
             className="relative rounded-full w-fit px-7 py-3 text-sm font-semibold text-white bg-ink overflow-hidden group"
@@ -50,21 +35,6 @@ export default function Hero() {
           >
             Tentang Kami
           </a>
-        </div>
-
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-10 opacity-90">
-          {DIVISION_BADGES.map((d) => (
-            <span
-              key={d.label}
-              className="flex items-center gap-1.5 text-xs text-ink-muted border border-black/10 rounded-full px-3 py-1.5 bg-black/5"
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ backgroundColor: d.color }}
-              />
-              {d.label}
-            </span>
-          ))}
         </div>
       </motion.div>
     </SoftGlowBackground>
